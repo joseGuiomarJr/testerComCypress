@@ -1,0 +1,57 @@
+import { faker } from '@faker-js/faker';
+import 'cypress-file-upload';
+
+const nome = faker.person.fullName();
+const email = faker.internet.email();
+const senha = faker.internet.password();
+
+const nomeUsuario = faker.person.fullName();
+const emailUsuario = faker.internet.email();
+const senhaUsuario = faker.internet.password();
+
+const nomeUsuarioSecundario = faker.person.fullName();
+const emailUsuarioSecundario = faker.internet.email();
+const senhaUsuarioSecundario = faker.internet.password();
+
+const nomeProduto = faker.commerce.productName();
+const preco = faker.number.int({ min: 10, max: 500 });
+const descricao = faker.commerce.productDescription();
+const quantidade = faker.number.int({ min: 1, max: 100 });
+
+describe('TESTES FUNCIONAIS FRONT-SERVEREST', () => {
+
+    it(' ACESSANDO PAGE LOGIN', () => {
+        cy.visit('/');
+    });
+
+    it('TC 022 FUNCIONALIDADES DO MENU PRINCIPAL ', () => {
+
+
+        cy.get('[data-testid="cadastrar"]').click();
+        cy.get('[data-testid="nome"]').type(nome);
+        cy.get('[data-testid="email"]').type(email);
+        cy.get('[data-testid="password"]').type(senha);
+
+        cy.get('[data-testid="cadastrar"]').click();
+        cy.wait(2000);
+        cy.get('.alert-link').contains("Cadastro realizado com sucesso");
+
+    });
+   it('TESTANDO FUNCIONALIDADE MENU LISTA DE COMPRAS ', () => {
+    cy.get('[data-testid="lista-de-compras"]').click();
+   });
+   
+   it('TESTANDO FUNCIONALIDADE MENU CARRINHO ', () => {
+    cy.get('[data-testid="carrinho"]').click();
+   });
+   
+   it('TESTANDO FUNCIONALIDADE MENU HOME ', () => {
+    cy.get('[data-testid="home"]').click();
+   });
+   
+   it('TESTANDO FUNCIONALIDADE MENU LOGOUT ', () => {
+    cy.get('[data-testid="logout"]').click();
+   });
+   
+
+});
