@@ -1,9 +1,9 @@
 import 'cypress-file-upload';
 
-import { loginUser, loginUserAdm, usuarioAdm } from '../app.cy';
+import {loginUserAdm, usuarioAdm } from '../app.cy';
 
 
-  it('REALIZAR LOGIN COMO USER', () => {
+  it('REALIZAR LOGIN COMO ADMINISTRADOR', () => {
     cy.visit('/');
     cy.cadastrarUsuario(usuarioAdm, true);
     cy.get('.alert-link').contains("Cadastro realizado com sucesso");
