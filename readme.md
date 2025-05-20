@@ -14,9 +14,6 @@ Este repositório contém uma suíte de testes automatizados usando **Cypress** 
 ┃ ┗ 📜commands.js # Custom commands para reutilização
 ┗ 📂fixtures # Dados mockados para cenários de teste
 
-yaml
-Copy
-Edit
 
 ## 🧠 Objetivo
 
@@ -54,21 +51,15 @@ Automatizar testes **positivos e negativos** para garantir a robustez do sistema
    cd nome-do-repo
 Instale as dependências:
 
-bash
-Copy
-Edit
+
 npm install
 Execute os testes no modo interativo:
 
-bash
-Copy
-Edit
+
 npx cypress open
 Ou em modo headless:
 
-bash
-Copy
-Edit
+
 npx cypress run
 📷 Demonstrações Visuais
 Exemplo da estrutura e execução dos testes no terminal + IDE
