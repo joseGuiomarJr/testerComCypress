@@ -100,7 +100,7 @@ npx cypress run
 ✔️ Código escalável e pronto para CI/CD
 
 📸 Screenshot
-<img src="../fixtures/screem.jpg"/>
+ <img src="../fixtures/screem.jpg" alt="">
 
 👨‍💻 Autor
 José Guilomar
