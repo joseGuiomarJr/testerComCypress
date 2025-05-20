@@ -8,12 +8,73 @@ Cypress.Commands.add('cadastrarUsuario', ({ nome, email, senha }, isAdmin = fals
   if (isAdmin) cy.get('[data-testid="checkbox"]').click();
   cy.get('[data-testid="cadastrar"]').click();
 });
-
-Cypress.Commands.add('cadastrarUsuarioComum', ({ nome, email, senha }) => {
+Cypress.Commands.add('cadastrarUsuario', ({ nome, email, senha }, isAdmin = false) => {
   cy.get('[data-testid="cadastrar"]').click();
   cy.get('[data-testid="nome"]').type(nome);
   cy.get('[data-testid="email"]').type(email);
   cy.get('[data-testid="password"]').type(senha);
+  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
+  cy.get('[data-testid="cadastrar"]').click();
+});
+
+
+ Cypress.Commands.add('cadastrarAdmNegativo', ({ nome, senha }, isAdmin = false) => {
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="password"]').type(senha);
+  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
+  cy.get('[data-testid="cadastrar"]').click();
+});
+Cypress.Commands.add('cadastrarAdmNegativoEmBranco', ({ nome, senha }, isAdmin = false) => {
+  cy.get('[data-testid="cadastrar"]').click();
+
+  if (nome) {
+    cy.get('[data-testid="nome"]').clear().type(nome);
+  } else {
+    cy.get('[data-testid="nome"]').clear();
+  }
+
+  if (senha) {
+    cy.get('[data-testid="password"]').clear().type(senha);
+  } else {
+    cy.get('[data-testid="password"]').clear();
+  }
+
+  if (isAdmin) {
+    cy.get('[data-testid="checkbox"]').click();
+  }
+
+  cy.get('[data-testid="cadastrar"]').click(); 
+});
+
+Cypress.Commands.add('cadastrarAdmNegativoDois', ({email, senha }, isAdmin = false) => {
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="password"]').type(senha);
+  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
+  cy.get('[data-testid="cadastrar"]').click();
+});
+Cypress.Commands.add('cadastrarAdmNegativoTres', ({nome,email }, isAdmin = false) => {
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="email"]').type(email);
+  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
+  cy.get('[data-testid="cadastrar"]').click();
+});
+Cypress.Commands.add('cadastrarAdmNegativoQuatro', ({ nome, email, senha }, isAdmin = false) => {
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="password"]').type(senha);
+  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
+  cy.get('[data-testid="cadastrar"]').click();
+});
+Cypress.Commands.add('cadastrarEmailErro', ({ nome, email, senha }, isAdmin = false) => {
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="password"]').type(senha);
+  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
   cy.get('[data-testid="cadastrar"]').click();
 });
 

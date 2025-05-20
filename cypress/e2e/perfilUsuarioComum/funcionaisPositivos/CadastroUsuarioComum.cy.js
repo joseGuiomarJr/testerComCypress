@@ -18,7 +18,7 @@ const nomeProduto = faker.commerce.productName();
     const descricao = faker.commerce.productDescription();
     const quantidade = faker.number.int({ min: 1, max: 100 });
 
-describe('TESTES FUNCIONAIS FRONT-SERVEREST', () => {
+describe('CADASTRANDO PRODUTOS NO CARRINHO COM DADOS VALIDOS', () => {
 
   it('TC 000 ACESSANDO PAGE LOGIN', () => {
     cy.visit('/');
