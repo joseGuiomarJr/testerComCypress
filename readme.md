@@ -4,7 +4,9 @@ Este repositório apresenta um projeto completo de **testes automatizados end-to
 
 ---
 
-![Execução de testes Cypress](./assets/cypress-teste-email-invalido.png)
+## 📸 Execução de testes Cypress
+
+<img src="./cypress/e2e/assets/screem.jpg" alt="Execução de teste com email inválido" width="600"/>
 
 ---
 
@@ -37,31 +39,31 @@ Este repositório apresenta um projeto completo de **testes automatizados end-to
 
 ## 📁 Estrutura do Projeto
 
+  <pre><code>
 📦cypress
-┣ 📂e2e
-┃ ┣ 📂cadastro # Testes de cadastro
-┃ ┃ ┣ cadastrarFuncNegEmailErro.cy.js
-┃ ┃ ┣ cadastrarFuncNegNome.cy.js
-┃ ┃ ┣ CadastroUser.cy.js
-┃ ┃ ┗ CadastroAdm.cy.js
-┃ ┣ 📂funcionalidades # Testes de funcionalidades gerais
-┃ ┣ 📂login # Login de usuários
-┃ ┃ ┗ loginUser.cy.js
-┗ 📜app.cy.js # Ponto de entrada de testes gerais
+ ┣ 📂e2e
+ ┃ ┣ 📂cadastro             # Testes de cadastro
+ ┃ ┃ ┣ cadastrarFuncNegEmailErro.cy.js
+ ┃ ┃ ┣ cadastrarFuncNegNome.cy.js
+ ┃ ┃ ┣ CadastroUser.cy.js
+ ┃ ┃ ┗ CadastroAdm.cy.js
+ ┃ ┣ 📂funcionalidades      # Testes de funcionalidades gerais
+ ┃ ┣ 📂login                # Login de usuários
+ ┃ ┃ ┗ loginUser.cy.js
+ ┗ 📜app.cy.js              # Ponto de entrada de testes gerais
 
 📂support
-┗ 📜commands.js # Custom commands para reuso
+ ┗ 📜commands.js            # Custom commands para reuso
 
 📂fixtures
-┗ 📜example.json # Mocks de dados
+ ┗ 📜example.json           # Mocks de dados
 
 📜README.md
 📜cypress.config.js
 📜package.json
+</code></pre>
 
-
-
----
+  <hr/>
 
 ## ⚙️ Tecnologias Utilizadas
 
@@ -74,35 +76,31 @@ Este repositório apresenta um projeto completo de **testes automatizados end-to
 ## 🚀 Como Executar os Testes
 
 1. **Clone o projeto:**
-
 git clone https://github.com/seu-usuario/testes-cypress-serverest.git
 cd testes-cypress-serverest
 
-
-
-2. **Instale as dependências:**
-
+2.**Instale as dependências:**
 npm install
 
-3. **Abra o cypress:**
-
+3.**Abra o cypress:**
 npx cypress open
 
-4. **Execute os testes manualmente ou em modo headless:**
-
+4.**Execute os testes em modo headless (linha de comando)::**
 npx cypress run
-
 🧩 Diferenciais do Projeto
 ✔️ Validações específicas de entrada com dados inválidos (e-mails, senhas, campos vazios)
-✔️ Separação clara de testes funcionais, login e cadastro
-✔️ Uso eficiente de comandos customizados
-✔️ Fácil manutenção e legibilidade
-✔️ Código escalável e pronto para CI/CD
 
-📸 Screenshot
-<img src="/cypress/e2e/assets/screem.jpg" alt="">
+✔️ Separação clara de testes funcionais, login e cadastro
+
+✔️ Uso eficiente de comandos customizados
+
+✔️ Fácil manutenção e legibilidade
+
+✔️ Código escalável e pronto para CI/CD
 
 👨‍💻 Autor
 José Guilomar
 🧠 QA em formação com foco em testes automatizados
 📧 jratividades@hotmail.com
+
+
