@@ -62,7 +62,9 @@ Este repositório apresenta um projeto completo de **testes automatizados end-to
 📜cypress.config.js
 📜package.json
 </code></pre>
-
+  <hr/>
+📷 Evidências e 🐞 Bugs Encontrados
+https://drive.google.com/drive/folders/1-XQajVGD0snuX0PWBZdxDjou9F2bCc6V?usp=drive_link
   <hr/>
 
 ## ⚙️ Tecnologias Utilizadas
