@@ -1,87 +1,108 @@
-# 🧪 Testes Automatizados com Cypress – Cadastro de Usuários e Produtos
+# 🧪 Projeto de Testes Automatizados com Cypress – Serverest
 
-Este repositório contém uma suíte de testes automatizados usando **Cypress** voltada para a validação de funcionalidades de um sistema de cadastro de usuários (admin e comum) e produtos.
+Este repositório apresenta um projeto completo de **testes automatizados end-to-end** utilizando o Cypress, focado na validação de fluxos de **cadastro, login e manipulação de produtos** em uma aplicação web (Serverest).
+
+---
+
+![Execução de testes Cypress](./assets/cypress-teste-email-invalido.png)
+
+---
+
+## 📌 Visão Geral
+
+- 🔍 Validação completa do **formulário de cadastro** (positivo e negativo)
+- 🧪 Cobertura de **cenários reais** de entrada de dados inválidos
+- 🧼 Organização modular e escalável de arquivos de teste
+- 🚀 Testes executados via **Cypress Test Runner**
+
+---
+
+## 🧠 O que foi testado?
+
+### ✅ Testes Positivos
+- Cadastro de usuários comuns e administradores
+- Login com credenciais válidas
+- Inclusão e visualização de produtos
+
+### ❌ Testes Negativos
+- Cadastro com campos obrigatórios em branco
+- Cadastro com e-mails malformados:
+  - Com espaços
+  - Com múltiplos “@”
+  - Sem ponto no domínio
+- Cadastro com senhas vazias
+- Login inválido
+
+---
 
 ## 📁 Estrutura do Projeto
 
 📦cypress
 ┣ 📂e2e
-┃ ┣ 📂cadastro # Testes de cadastro de usuários
-┃ ┣ 📂funcionalidades # Fluxos funcionais (login, menu, produto, etc)
-┃ ┣ 📂login # Testes de login
-┃ ┗ 📜app.cy.js # Arquivo principal que orquestra execuções
-┣ 📂support
-┃ ┗ 📜commands.js # Custom commands para reutilização
-┗ 📂fixtures # Dados mockados para cenários de teste
+┃ ┣ 📂cadastro # Testes de cadastro
+┃ ┃ ┣ cadastrarFuncNegEmailErro.cy.js
+┃ ┃ ┣ cadastrarFuncNegNome.cy.js
+┃ ┃ ┣ CadastroUser.cy.js
+┃ ┃ ┗ CadastroAdm.cy.js
+┃ ┣ 📂funcionalidades # Testes de funcionalidades gerais
+┃ ┣ 📂login # Login de usuários
+┃ ┃ ┗ loginUser.cy.js
+┗ 📜app.cy.js # Ponto de entrada de testes gerais
+
+📂support
+┗ 📜commands.js # Custom commands para reuso
+
+📂fixtures
+┗ 📜example.json # Mocks de dados
+
+📜README.md
+📜cypress.config.js
+📜package.json
 
 
-## 🧠 Objetivo
-
-Automatizar testes **positivos e negativos** para garantir a robustez do sistema frente a entradas válidas e inválidas, usando Cypress como ferramenta de testes end-to-end.
-
----
-
-## 🧪 Funcionalidades Testadas
-
-- ✅ Cadastro de usuários admin e comuns  
-- ❌ Testes negativos de cadastro com:
-  - Campos obrigatórios vazios
-  - Senhas ou e-mails inválidos
-  - Caracteres especiais em e-mails
-  - Múltiplos “@” ou espaços em e-mails
-- 🔐 Login de usuários
-- 🛒 Cadastro de produtos com imagens
 
 ---
 
 ## ⚙️ Tecnologias Utilizadas
 
-- [Cypress](https://www.cypress.io/) – Automação de testes end-to-end
+- [Cypress](https://www.cypress.io/) – Framework de testes E2E
 - [Faker.js](https://fakerjs.dev/) – Geração de dados dinâmicos
-- [cypress-file-upload](https://www.npmjs.com/package/cypress-file-upload) – Upload de arquivos
-- JavaScript (ES6)
+- [Cypress File Upload](https://www.npmjs.com/package/cypress-file-upload) – Upload automatizado de imagens
 
 ---
 
-## 🚀 Como Executar
+## 🚀 Como Executar os Testes
 
-1. **Clone o repositório**:
-   ```bash
-   git clone https://github.com/seu-usuario/nome-do-repo.git
-   cd nome-do-repo
-Instale as dependências:
+1. **Clone o projeto:**
 
+git clone https://github.com/seu-usuario/testes-cypress-serverest.git
+cd testes-cypress-serverest
+
+
+
+2. **Instale as dependências:**
 
 npm install
-Execute os testes no modo interativo:
 
+3. **Abra o cypress:**
 
 npx cypress open
-Ou em modo headless:
 
+4. **Execute os testes manualmente ou em modo headless:**
 
 npx cypress run
-📷 Demonstrações Visuais
-Exemplo da estrutura e execução dos testes no terminal + IDE
 
+🧩 Diferenciais do Projeto
+✔️ Validações específicas de entrada com dados inválidos (e-mails, senhas, campos vazios)
+✔️ Separação clara de testes funcionais, login e cadastro
+✔️ Uso eficiente de comandos customizados
+✔️ Fácil manutenção e legibilidade
+✔️ Código escalável e pronto para CI/CD
 
-💡 Diferenciais do Projeto
-Cobertura completa de testes negativos reais
-
-Uso de boas práticas de automação, como:
-
-Modularização de comandos (commands.js)
-
-Separação por contexto de testes
-
-Nomenclatura clara e descritiva
-
-Fácil manutenção e escalabilidade
+📸 Screenshot
+<img src="../fixtures/screem.jpg" width="470">
 
 👨‍💻 Autor
-José Guiomar Jr.
+José Guilomar
+🧠 QA em formação com foco em testes automatizados
 📧 jratividades@hotmail.com
-🔗 linkedin.com/in/josé-guiomar-silva-jr-1a968b198 • GitHub
-
-📌 Observações
-Caso deseje rodar os testes localmente, é necessário ter o Node.js instalado.
