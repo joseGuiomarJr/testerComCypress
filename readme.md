@@ -1,6 +1,6 @@
-# 🧪 Projeto de Testes Automatizados com Cypress – Serverest
+# 🧪 Projeto de Testes Automatizados – Serverest
 
-Este repositório apresenta um projeto completo de **testes automatizados end-to-end** utilizando o Cypress e o Postman, focado na validação de fluxos de **cadastro, login e manipulação de produtos** em uma aplicação web (Serverest).
+Este repositório apresenta um projeto completo de **testes automatizados** utilizando **Cypress** para frontend e **Postman** para backend, focado na validação de fluxos de **cadastro, login e manipulação de produtos** em uma aplicação baseada na API pública Serverest.
 
 ---
 
@@ -13,51 +13,68 @@ Este repositório apresenta um projeto completo de **testes automatizados end-to
 ## 📌 Visão Geral
 
 - 🔍 Validação completa do **formulário de cadastro** (positivo e negativo)
-- 🧪 Cobertura de **cenários reais** de entrada de dados inválidos
+- 🧪 Cobertura de **cenários reais** com dados inválidos e vulnerabilidades
 - 🧼 Organização modular e escalável de arquivos de teste
-- 🚀 Testes executados via **Cypress Test Runner** e **Postman**
+- 🚀 Testes executados via **Cypress Test Runner** e **Postman Runner**
 
 ---
 
 ## 🧠 O que foi testado?
 
-### ✅ Testes Positivos
+### ✅ Testes Positivos (Frontend)
 - Cadastro de usuários comuns e administradores
+- Cadastro de novos usuários
 - Login com credenciais válidas
-- Inclusão e visualização de produtos
+- Inclusão,exclusão,pesquisa e visualização de produtos
 
-### ❌ Testes Negativos
-- Cadastro com campos obrigatórios em branco
-- Cadastro com e-mails malformados:
+### ❌ Testes Negativos (Frontend)
+- Campos obrigatórios em branco
+- E-mails malformados:
   - Com espaços
   - Com múltiplos “@”
   - Sem ponto no domínio
-- Cadastro com senhas vazias
+- Senhas vazias ou curtas
 - Login inválido
 
 ---
 
-## 🗂️ Planos de Teste
+## 🧪 Cenários de Testes
 
-### 🎨 Frontend (Cypress)
-Page de teste frontend em: https://front.serverest.dev/login
-- Validação de formulários de cadastro e login
-- Simulação de interações do usuário na interface
-- Testes com entradas válidas e inválidas
-- Validação de mensagens de erro e sucesso
-- Validação de formulários de cadastro de produtos
-
-### 🔧 Backend (Postman)
-Documentação para testes backend em: https://serverest.dev/
-- Testes de API: `POST /usuarios`, `GET /produtos`, `POST /login`
-- Testes com dados válidos e inválidos
-- Verificação de códigos de status (200, 400, 401, 422)
-- Validação de estrutura de respostas JSON
+- Link para os planos de teste front-end: [(https://docs.google.com/spreadsheets/d/1YaS8QGDxzoFfKDqgzkrcxGc5kIQaZvb7Ve8ioHWJU6s/edit?usp=sharing)]
+- Link para os planos de teste back-end: [(https://docs.google.com/spreadsheets/d/1f7C1ZCjv1S-MpulreQ8sKwiPQgG3QhUhZlTKmtBYXWk/edit?usp=sharing)]
 
 ---
 
+🗂️ Planos de Teste
+
+🎨 Frontend (Cypress)
+Página de teste frontend: https://front.serverest.dev/login
+
+Validação de formulários de cadastro e login
+
+Simulação de interações do usuário na interface
+
+Testes com entradas válidas e inválidas
+
+Validação de mensagens de erro e sucesso
+
+Validação de cadastro de produtos
+
+🔧 Backend (Postman)
+
+Documentação da API: https://serverest.dev/
+
+Testes nos endpoints POST /usuarios, GET /produtos, POST /login
+
+Testes com dados válidos e inválidos
+
+Verificação de códigos de status (200, 400, 401, 422)
+
+Validação da estrutura de resposta JSON
+
 ## 📁 Estrutura do Projeto
 
+```bash
 📦cypress
  ┣ 📂e2e
  ┃ ┣ 📂cadastro             # Testes de cadastro
@@ -68,10 +85,10 @@ Documentação para testes backend em: https://serverest.dev/
  ┃ ┣ 📂funcionalidades      # Testes de funcionalidades gerais
  ┃ ┣ 📂login                # Login de usuários
  ┃ ┃ ┗ loginUser.cy.js
- ┗ 📜app.cy.js              # Ponto de entrada de testes gerais
+ ┗ 📜app.cy.js              # Testes gerais
 
 📂support
- ┗ 📜commands.js            # Custom commands para reuso
+ ┗ 📜commands.js            # Custom commands
 
 📂fixtures
  ┗ 📜example.json           # Mocks de dados
@@ -81,8 +98,6 @@ Documentação para testes backend em: https://serverest.dev/
 📜package.json
 
 
-
----
 
 ## ⚙️ Tecnologias Utilizadas
 
@@ -121,8 +136,60 @@ npx cypress run
 ✔️ Fácil manutenção e legibilidade
 ✔️ Código escalável e pronto para CI/CD
 
-📸 Screenshot
-<img src="/cypress/e2e/assets/screem.jpg" alt="">
+🐞 Relatório de Evidência de Bug – API Serverest
+🔍 Projeto: Testes Automatizados da API Serverest
+🛠 Ferramentas: Postman, Node.js, API pública https://serverest.dev
+📅 Data da Execução: 10/05/2025
+👤 Responsável: José Guilomar
+📂 Ambiente: Produção (API pública)
+📌 Evidência Principal: Listagem de usuários retorna senha em texto plano + permissões administrativas indevidas
+
+🐞 Descrição do Bug Identificado
+ID do Bug: BUG-API-001
+
+Severidade: Alta
+
+Endpoint: GET https://serverest.dev/usuarios
+
+Comportamento Observado:
+O endpoint retorna objetos de usuários contendo o campo "password" com valor visível em texto plano.
+Além disso, um dos usuários listados possui "administrador": "true" mesmo utilizando senha fraca "teste".
+
+📷 Imagem da Evidência (Postman)
+Título: Bug - Senha comum com privilégio de admin
+Prints: https://drive.google.com/drive/folders/1aXtMeAd5duEDXQQCPN5lIT27NwULccyX?usp=drive_link
+
+
+Mostra claramente um usuário com:
+
+password: "teste"
+administrador: "true"
+Resposta HTTP: 200 OK (comportamento aceito pela API).
+
+🧪 Requisição Utilizada
+Método: GET
+
+Endpoint: /usuarios
+
+Cabeçalhos: Nenhum token necessário
+
+Parâmetros: Nenhum
+
+🛡️ Riscos e Impactos
+Segurança: Senhas expostas publicamente
+
+Acesso indevido: Falha crítica de controle de permissões
+
+Conformidade: Não aderente à LGPD / GDPR
+
+🐞 Relatório de Evidência de Bug – Front-end Serverest 
+🔍 Projeto: Testes Automatizados com Cypress
+🛠 Ferramentas: Cypress, Node.js, site: https://front.serverest.dev/login
+📅 Data da Execução: 10/05/2025
+👤 Responsável: José Guilomar
+📂 Ambiente: https://front.serverest.dev/login
+📌 Evidência em :https://drive.google.com/drive/folders/1VpLARHrkQL6tS2kx52RK2SdswJzb9xsv?usp=sharing
+
 
 👨‍💻 Autor
 José Guilomar
