@@ -58,7 +58,6 @@ Documentação para testes backend em: https://serverest.dev/
 
 ## 📁 Estrutura do Projeto
 
-<pre><code>
 📦cypress
  ┣ 📂e2e
  ┃ ┣ 📂cadastro             # Testes de cadastro
@@ -80,72 +79,8 @@ Documentação para testes backend em: https://serverest.dev/
 📜README.md
 📜cypress.config.js
 📜package.json
-</code></pre>
-
----
-
-## 🧾 Cenários de Testes
-
-Os detalhes completos dos casos de testes utilizados neste projeto (incluindo pré-condições, passos e resultados esperados) podem ser acessados no link abaixo:
-
-🔗 [Documentação de Casos de Teste backend][(https://docs.google.com/spreadsheets/d/1f7C1ZCjv1S-MpulreQ8sKwiPQgG3QhUhZlTKmtBYXWk/edit?usp=sharing)
-🔗 [Documentação de Casos de Teste frontend][[(https://docs.google.com/spreadsheets/d/1f7C1ZCjv1S-MpulreQ8sKwiPQgG3QhUhZlTKmtBYXWk/edit?usp=sharing)](https://docs.google.com/spreadsheets/d/1YaS8QGDxzoFfKDqgzkrcxGc5kIQaZvb7Ve8ioHWJU6s/edit?usp=sharing)
-
----
-
-## 📷 Evidências e 🐞 Bugs Encontrados - Frontend Serverest
-
-📂 Pasta com prints de execução e descrição de bugs encontrados:  
-🔗 [Acessar Evidências no Google Drive](https://drive.google.com/drive/folders/1VpLARHrkQL6tS2kx52RK2SdswJzb9xsv?usp=drive_link)
 
 
-## 📷 Evidências e 🐞 Bugs Encontrados – API Serverest
-🔍 Projeto: Testes Automatizados da API Serverest
-🛠 Ferramentas: Postman, Node.js, API pública https://serverest.dev
-📅 Data da Execução: 10/05/2025
-📂 Ambiente: Produção (API pública)
-📌 Evidência Principal: Listagem de usuários retorna senha em texto plano + permissões administrativas indevidas
-
-🐞 Descrição do Bug Identificado
-ID do Bug: BUG-API-001
-Severidade: Alta
-Endpoint: GET https://serverest.dev/usuarios
-Comportamento Observado:
-
-O endpoint retorna objetos de usuários contendo o campo "password" com valor visível em texto plano.
-
-Um dos usuários listados possui o campo "administrador": "true", mesmo utilizando uma senha comum, não segura ("teste"), o que evidencia um possível problema de controle de acesso ou má definição de privilégios.
-
-📷 Imagem da Evidência (Postman)
-Título da Evidência: Bug - Senha comum com privilégio de admin
-Prints:(https://drive.google.com/drive/folders/1aXtMeAd5duEDXQQCPN5lIT27NwULccyX?usp=drive_link).
-
-
-bug_senha_comun_com_privilegio_adm.jpg
-
-Mostra claramente um usuário com:
-
-password: "teste"
-
-administrador: "true"
-
-A resposta HTTP retorna 200 OK, validando que o comportamento é aceito pela API.
-
-🧪 Requisição Utilizada
-Método: GET
-
-Endpoint: /usuarios
-
-Cabeçalhos: Nenhum token necessário
-
-Parâmetros: Nenhum
-
-🛡️ Riscos e Impactos
-Segurança: Exposição de senhas em texto plano pode comprometer dados de produção.
-
-Acesso indevido: Usuários comuns com privilégios de administrador representam falha crítica de controle de permissões.
-
-Conformidade: Não aderente à LGPD / GDPR (dados sensíveis visíveis publicamente).
 
 ---
 
@@ -162,6 +97,34 @@ Conformidade: Não aderente à LGPD / GDPR (dados sensíveis visíveis publicame
 
 1. **Clone o projeto:**
 
-```bash
 git clone https://github.com/seu-usuario/testes-cypress-serverest.git
 cd testes-cypress-serverest
+
+
+
+2. **Instale as dependências:**
+
+npm install
+
+3. **Abra o cypress:**
+
+npx cypress open
+
+4. **Execute os testes manualmente ou em modo headless:**
+
+npx cypress run
+
+🧩 Diferenciais do Projeto
+✔️ Validações específicas de entrada com dados inválidos (e-mails, senhas, campos vazios)
+✔️ Separação clara de testes funcionais, login e cadastro
+✔️ Uso eficiente de comandos customizados
+✔️ Fácil manutenção e legibilidade
+✔️ Código escalável e pronto para CI/CD
+
+📸 Screenshot
+<img src="/cypress/e2e/assets/screem.jpg" alt="">
+
+👨‍💻 Autor
+José Guilomar
+🧠 QA em formação com foco em testes automatizados
+📧 jratividades@hotmail.com
