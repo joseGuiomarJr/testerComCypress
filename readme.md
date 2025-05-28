@@ -186,12 +186,12 @@ Conformidade: Não aderente à LGPD / GDPR
 🔍 Projeto: Testes Automatizados com Cypress
 🛠 Ferramentas: Cypress, Node.js, site: https://front.serverest.dev/login
 📅 Data da Execução: 10/05/2025
-👤 Responsável: José Guilomar
+👤 Responsável: José Guiomar Jr
 📂 Ambiente: https://front.serverest.dev/login
 📌 Evidência em :https://drive.google.com/drive/folders/1VpLARHrkQL6tS2kx52RK2SdswJzb9xsv?usp=sharing
 
 
 👨‍💻 Autor
-José Guilomar
+José Guiomar Jr.
 🧠 QA em formação com foco em testes automatizados
 📧 jratividades@hotmail.com
