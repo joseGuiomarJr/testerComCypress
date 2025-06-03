@@ -8,14 +8,6 @@ Cypress.Commands.add('cadastrarUsuario', ({ nome, email, senha }, isAdmin = fals
   if (isAdmin) cy.get('[data-testid="checkbox"]').click();
   cy.get('[data-testid="cadastrar"]').click();
 });
-Cypress.Commands.add('cadastrarUsuario', ({ nome, email, senha }, isAdmin = false) => {
-  cy.get('[data-testid="cadastrar"]').click();
-  cy.get('[data-testid="nome"]').type(nome);
-  cy.get('[data-testid="email"]').type(email);
-  cy.get('[data-testid="password"]').type(senha);
-  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
-  cy.get('[data-testid="cadastrar"]').click();
-});
 
 
  Cypress.Commands.add('cadastrarAdmNegativo', ({ nome, senha }, isAdmin = false) => {
@@ -97,4 +89,16 @@ Cypress.Commands.add('cadastrarProduto', ({ nome, preco, descricao, quantidade, 
   cy.get('[data-testid="imagem"]').attachFile(imagem);
   cy.get('[data-testid="cadastarProdutos"]').click();
 });
-
+Cypress.Commands.add('cadastrarUserMenuFuncionalidade',({ nome, email, senha }) =>{
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="password"]').type(senha);
+  cy.get('[data-testid="cadastrarUsuario"]').click();
+});
+Cypress.Commands.add('cadastrarAdmrMenuFuncionalidade',({ nome, email, senha }) =>{
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="password"]').type(senha);
+  cy.get('[data-testid="checkbox"]').click();
+  cy.get('[data-testid="cadastrarUsuario"]').click();
+});

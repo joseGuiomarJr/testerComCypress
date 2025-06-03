@@ -9,5 +9,4 @@ import {loginUserAdm, usuarioAdm } from '../app.cy';
     cy.get('.alert-link').contains("Cadastro realizado com sucesso");
     cy.logout();
     cy.login(loginUserAdm());
-   
   });

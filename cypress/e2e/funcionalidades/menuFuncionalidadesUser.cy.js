@@ -4,7 +4,7 @@ import { loginUser, usuarioComum } from '../app.cy';
 
 
 
-describe('TESTANDO FUNCIONALIDADES MENU PRINCIPAL', () => {
+describe(' FUNCIONALIDADES MENU PRINCIPAL', () => {
     it('REALIZAR LOGIN COMO USER', () => {
     cy.visit('/');
     cy.cadastrarUsuarioComum(usuarioComum, true);
@@ -13,19 +13,19 @@ describe('TESTANDO FUNCIONALIDADES MENU PRINCIPAL', () => {
     cy.login(loginUser());
    
   });
-   it('TESTANDO FUNCIONALIDADE MENU LISTA DE COMPRAS ', () => {
+   it(' FUNCIONALIDADE MENU LISTA DE COMPRAS ', () => {
     cy.get('[data-testid="lista-de-compras"]').click();
    });
    
-   it('TESTANDO FUNCIONALIDADE MENU CARRINHO ', () => {
+   it(' FUNCIONALIDADE MENU CARRINHO ', () => {
     cy.get('[data-testid="carrinho"]').click();
    });
    
-   it('TESTANDO FUNCIONALIDADE MENU HOME ', () => {
+   it('FUNCIONALIDADE MENU HOME ', () => {
     cy.get('[data-testid="home"]').click();
    });
    
-   it('TESTANDO FUNCIONALIDADE MENU LOGOUT ', () => {
+   it(' FUNCIONALIDADE MENU LOGOUT ', () => {
     cy.get('[data-testid="logout"]').click();
    });
    

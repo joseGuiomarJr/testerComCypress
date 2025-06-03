@@ -46,6 +46,99 @@ export const produto = {
   quantidade: faker.number.int({ min: 1, max: 100 }),
   imagem: 'images.png'
 };
+
+export function cadastrarUsuario({ nome, email, senha }, isAdmin = false) {
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="password"]').type(senha);
+  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('.alert-link').contains("Cadastro realizado com sucesso");
+  cy.logout();
+  cy.login(loginUser());
+}
+export function cadastrarAdmNegativo({ nome, senha }, isAdmin = false) {
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="password"]').type(senha);
+  cy.get('[data-testid="cadastrar"]').click();
+}
+
+export function cadastrarAdmNegativoDois({ email, senha }, isAdmin = false) {
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="password"]').type(senha);
+  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
+  cy.get('[data-testid="cadastrar"]').click();
+}
+
+export function cadastrarAdmNegativoTres({ nome, email }, isAdmin = false) {
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="email"]').type(email);
+  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
+  cy.get('[data-testid="cadastrar"]').click();
+}
+
+
+
+export function cadastrarUsuarioComum({ nome, email, senha }) {
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="password"]').type(senha);
+  cy.get('[data-testid="cadastrar"]').click();
+}
+
+export function cadastrarUserMenuFuncionalidade({ nome, email, senha }) {
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="password"]').type(senha);
+  cy.get('[data-testid="cadastrarUsuario"]').click();
+}
+
+export function cadastrarEmailErro({ nome, email, senha }) {
+  cy.get('[data-testid="cadastrar"]').click();
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="email"]').type(email);
+  cy.get('[data-testid="password"]').type(senha);
+  cy.get('[data-testid="cadastrar"]').click();
+}
+
+export function cadastrarProduto({ nome, preco, descricao, quantidade, imagem }) {
+  cy.get('[data-testid="cadastrar-produtos"]').click();
+  cy.get('[data-testid="nome"]').type(nome);
+  cy.get('[data-testid="preco"]').type(preco.toString());
+  cy.get('[data-testid="descricao"]').type(descricao);
+  cy.get('[data-testid="quantity"]').type(quantidade.toString());
+  cy.get('[data-testid="imagem"]').attachFile(imagem);
+  cy.get('[data-testid="cadastarProdutos"]').click();
+};
+export function adicionarProdutos() {
+  it('ADICIONANDO PRODUTOS NO CARRINHO', () => {
+    cy.wait(1000);
+    cy.get(':nth-child(1) > .card-body > div > [href="/minhaListaDeProdutos"] > [data-testid="adicionarNaLista"]').click();
+    cy.wait(1000);
+    cy.get('["<button type="button" data-testid="product-increase-quantity" class="btn btn-primary">+</button>"]').click();
+
+  });
+}
+export function loginUser() {
+  return {
+    email: usuarioComum.email,
+    senha: usuarioComum.senha
+  };
+}
+export function loginUserAdm() {
+  return {
+    email: usuarioAdm.email,
+    senha: usuarioAdm.senha
+  };
+}
+export function logout() {
+  cy.get('[data-testid="logout"]').click();
+}
 export const usuariosEmailInvalido = [
   {
     descricao: 'sem "@" no e-mail',
@@ -53,7 +146,7 @@ export const usuariosEmailInvalido = [
       nome: faker.person.fullName(),
       email: 'usuarioemail.com',
       senha: faker.internet.password()
-      
+
     }
   },
   {
@@ -97,79 +190,3 @@ export const usuariosEmailInvalido = [
     }
   }
 ];
-
-
-
-export function cadastrarUsuario({ nome, email, senha }, isAdmin = false) {
-  cy.get('[data-testid="cadastrar"]').click();
-  cy.get('[data-testid="nome"]').type(nome);
-  cy.get('[data-testid="email"]').type(email);
-  cy.get('[data-testid="password"]').type(senha);
-  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
-  cy.get('[data-testid="cadastrar"]').click();
-}
-export function cadastrarAdmNegativo({ nome, senha }, isAdmin = false) {
-  cy.get('[data-testid="cadastrar"]').click();
-  cy.get('[data-testid="nome"]').type(nome);
-  cy.get('[data-testid="password"]').type(senha);
-  cy.get('[data-testid="cadastrar"]').click();
-}
-
-export function cadastrarAdmNegativoDois({ email, senha }, isAdmin = false) {
-  cy.get('[data-testid="cadastrar"]').click();
-  cy.get('[data-testid="email"]').type(email);
-  cy.get('[data-testid="password"]').type(senha);
-  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
-  cy.get('[data-testid="cadastrar"]').click();
-}
-
-export function cadastrarAdmNegativoTres({ nome, email }, isAdmin = false) {
-  cy.get('[data-testid="cadastrar"]').click();
-  cy.get('[data-testid="nome"]').type(nome);
-  cy.get('[data-testid="email"]').type(email);
-  if (isAdmin) cy.get('[data-testid="checkbox"]').click();
-  cy.get('[data-testid="cadastrar"]').click();
-}
-
-
-
-export function cadastrarUsuarioComum({ nome, email, senha }) {
-  cy.get('[data-testid="cadastrar"]').click();
-  cy.get('[data-testid="nome"]').type(nome);
-  cy.get('[data-testid="email"]').type(email);
-  cy.get('[data-testid="password"]').type(senha);
-  cy.get('[data-testid="cadastrar"]').click();
-}
-export function cadastrarEmailErro({nome,email,senha}){
-  cy.get('[data-testid="cadastrar"]').click();
-  cy.get('[data-testid="nome"]').type(nome);
-  cy.get('[data-testid="email"]').type(email);
-  cy.get('[data-testid="password"]').type(senha);
-  cy.get('[data-testid="cadastrar"]').click();
-}
-
-export function loginUser() {
-  return {
-    email: usuarioComum.email,
-    senha: usuarioComum.senha
-  };
-}
-export function loginUserAdm() {
-  return {
-    email: usuarioAdm.email,
-    senha: usuarioAdm.senha
-  };
-}
-export function logout() {
-  cy.get('[data-testid="logout"]').click();
-}
-
-export function cadastrarProduto({ nome, preco, descricao, quantidade, imagem }) {
-  cy.get('[data-testid="cadastrar-produtos"]').click();
-  cy.get('[data-testid="nome"]').type(nome);
-  cy.get('[data-testid="preco"]').type(preco.toString());
-  cy.get('[data-testid="descricao"]').type(descricao);
-  cy.get('[data-testid="quantity"]').type(quantidade.toString());
-  cy.get('[data-testid="imagem"]').attachFile(imagem);
-  cy.get('[data-testid="cadastarProdutos"]').click();
-};
