@@ -77,27 +77,28 @@ Validação da estrutura de resposta JSON
 ```bash
 📦cypress
  ┣ 📂e2e
- ┃ ┣ 📂cadastro             # Testes de cadastro
+ ┃ ┣ 📂cadastroUsuarios
  ┃ ┃ ┣ cadastrarFuncNegEmailErro.cy.js
- ┃ ┃ ┣ cadastrarFuncNegNome.cy.js
- ┃ ┃ ┣ CadastroUser.cy.js
- ┃ ┃ ┗ CadastroAdm.cy.js
- ┃ ┣ 📂funcionalidades      # Testes de funcionalidades gerais
- ┃ ┣ 📂login                # Login de usuários
+ ┃ ┃ ┣ cadastrarFuncNegEmBranco.cy.js
+ ┃ ┃ ┣ CadastrarFuncNegSenha.cy.js
+ ┃ ┃ ┣ CadastroAdm.cy.js
+ ┃ ┃ ┣ CadastroFuncNegEmail.cy.js
+ ┃ ┃ ┣ CadastroFuncNegNome.cy.js
+ ┃ ┃ ┗ CadastroUser.cy.js
+ ┃ ┣ 📂funcionalidades
+ ┃ ┃ ┣ menuFuncionalidadesAdm.cy.js
+ ┃ ┃ ┗ menuFuncionalidadesUser.cy.js
+ ┃ ┣ 📂login
+ ┃ ┃ ┣ loginAdm.cy.js
  ┃ ┃ ┗ loginUser.cy.js
- ┗ 📜app.cy.js              # Testes gerais
-
-📂support
- ┗ 📜commands.js            # Custom commands
-
-📂fixtures
- ┗ 📜example.json           # Mocks de dados
-
-📜README.md
-📜cypress.config.js
-📜package.json
-
-
+ ┃ ┣ 📂produtos
+ ┃ ┃ ┣ adicionandoProdutosCarrinho.cy.js
+ ┃ ┃ ┣ LimparListaDeProdutos.cy.js
+ ┃ ┃ ┗ PesquisarProdutoUserComun.cy.js
+ ┃ ┗ app.cy.js
+ ┣ 📂fixtures
+ ┣ 📂support
+ ┗ cypress.config.js
 
 ## ⚙️ Tecnologias Utilizadas
 
