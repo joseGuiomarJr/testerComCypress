@@ -113,7 +113,7 @@ Validação da estrutura de resposta JSON
 
 1. **Clone o projeto:**
 
-git clone https://github.com/seu-usuario/testes-cypress-serverest.git
+git clone https://github.com/joseGuiomarJr/testerComCypress.git
 cd testes-cypress-serverest
 
 
